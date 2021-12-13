@@ -1,0 +1,59 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+    background-color: #2e3440;
+    color: #d8dee9;
+}
+
+.main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 12px 48px;
+    min-height: 100vh;
+    background-color: #3b4252;
+}
+
+h1 {
+    text-align: center;
+    width: 100%;
+}
+
+hr {
+    color: #4c566a;
+}
+
+.issue {
+    margin: 12px 0;
+    border: 2px #4c566a solid;
+    background-color: #4c566a;
+    padding: 10px 16px;
+    border-radius: 16px;
+}
+
+.issue > h3 {
+    font-size: small;
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.issue > h2 {
+    margin: 0;
+}
+
+.issue a {
+    color: #8fbcbb;
+    text-decoration: none;
+}
+
+.issue > span {
+    font-size: small;
+    background-color: #81a1c1;
+    color: #eceff4;
+    border-radius: 999px;
+    padding: 2px 4px;
+}
+
+.issue > span.lang {
+    background-color: #bf616a;
+}
