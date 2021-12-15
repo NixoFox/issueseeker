@@ -10,7 +10,7 @@ if (localStorage.getItem("first") == null) {
 let filter_list = localStorage.getItem("filters").split(",");
 
 async function fetchjson (url) {
-    if (localStorage.getItem("auth") != null){
+    if (localStorage.getItem("auth") != null) {
         return fetch(url, { headers: { authorization: "token " + localStorage.getItem("auth") } })
         .then((response) => {return response.json()});
     } else {
