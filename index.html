@@ -9,6 +9,9 @@
         <div class="main">
             <h1>IssueSeeker</h1>
             <hr/>
+            <div class="icons">
+                <i onclick="document.getElementById('about').style.display = 'block'">about</i>
+            </div>
             <p>IssueSeeker helps you find issues on github to solve.</p>
             <hr/>
             <div class="issues">
@@ -20,6 +23,14 @@
                     <span>label</span>
                     <p>issue body lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
                 </div> -->
+            </div>
+        </div>
+        <div class="modal" id="about">
+            <div class="inner">
+                <p>
+                    IssueSeeker is a tool that lets you search for github issues with multiple filters
+                </p>
+                <input type="button" value="close" onclick="document.getElementById('about').style.display = 'none'"/>
             </div>
         </div>
         <script src="script.js"></script>

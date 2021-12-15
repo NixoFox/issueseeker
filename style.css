@@ -4,6 +4,7 @@ html, body {
     font-family: monospace;
     background-color: #2e3440;
     color: #d8dee9;
+    box-sizing: border-box;
 }
 
 .main {
@@ -56,4 +57,35 @@ hr {
 
 .issue > span.lang {
     background-color: #bf616a;
+}
+
+.modal {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2e34407F;
+}
+
+.modal > .inner {
+    min-width: 200px;
+    max-width: 400px;
+    background-color: #eceff4;
+    color: #2e3440;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 32px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons > i {
+    cursor: pointer;
 }
