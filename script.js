@@ -1,9 +1,12 @@
-let tempstore = {
-    per_page: 5,
-    filters: 'is:issue+is:open+label:enhancment,is:issue+is:open+label:"good first issue"'
-};
+if (localStorage.getItem("first") == null) {
+    localStorage.setItem("per_page", 25);
+    localStorage.setItem("order", "desc");
+    localStorage.setItem("sort", "created");
+    localStorage.setItem("filters", "is:open");
+    localStorage.setItem("first", false);
+}
 
-let filter_list = tempstore.filters.split(",");
+let filter_list = localStorage.getItem("filters").split(",");
 
 async function fetchjson (url) {
     return fetch(url)
@@ -12,7 +15,7 @@ async function fetchjson (url) {
 
 async function main () {
     for (let k = 0; k < filter_list.length; k++) {
-        let issues = await fetchjson("https://api.github.com/search/issues?per_page="+Math.floor(tempstore.per_page/filter_list.length)+"&q="+filter_list[k]);
+        let issues = await fetchjson("https://api.github.com/search/issues?per_page="+Math.floor(localStorage.getItem("per_page")/filter_list.length)+"&q="+filter_list[k]+"&order="+localStorage.getItem("order")+"&sort="+localStorage.getItem("sort"));
         let items = issues.items;
         for(let i = 0; i < items.length; i++) {
             let item = items[i];
