@@ -3,14 +3,20 @@ if (localStorage.getItem("first") == null) {
     localStorage.setItem("order", "desc");
     localStorage.setItem("sort", "created");
     localStorage.setItem("filters", "is:open");
+    localStorage.setItem("auth", null);
     localStorage.setItem("first", false);
 }
 
 let filter_list = localStorage.getItem("filters").split(",");
 
 async function fetchjson (url) {
+    if (localStorage.getItem("auth") != null){
+        return fetch(url, { headers: { authorization: "token " + localStorage.getItem("auth") } })
+        .then((response) => {return response.json()});
+    } else {
     return fetch(url)
         .then((response) => {return response.json()});
+    }
 }
 
 async function main () {
