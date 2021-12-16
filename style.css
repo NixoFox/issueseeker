@@ -72,13 +72,15 @@ hr {
 .modal > .inner {
     min-width: 200px;
     max-width: 400px;
-    background-color: #eceff4;
-    color: #2e3440;
+    background-color: #2e3440;
+    color: #eceff4;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 32px;
+    border-radius: 16px;
+    border: #81a1c1 2px solid;
 }
 
 .modal > .inner > h3 {
