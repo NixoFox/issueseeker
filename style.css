@@ -71,7 +71,7 @@ hr {
 
 .modal > .inner {
     min-width: 200px;
-    max-width: 400px;
+    max-width: 600px;
     background-color: #2e3440;
     color: #eceff4;
     position: absolute;
