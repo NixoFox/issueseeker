@@ -67,7 +67,7 @@ async function fetchjson (url) {
 
 async function main () {
     for (let k = 0; k < filter_list.length; k++) {
-        let issues = await fetchjson("https://api.github.com/search/issues?per_page="+Math.floor(localStorage.getItem("per_page")/filter_list.length)+"&q="+filter_list[k]+"&order="+localStorage.getItem("order")+"&sort="+localStorage.getItem("sort"));
+        let issues = await fetchjson("https://api.github.com/search/issues?per_page="+Math.floor(localStorage.getItem("per_page")/filter_list.length)+"&q=is:issue+"+filter_list[k]+"&order="+localStorage.getItem("order")+"&sort="+localStorage.getItem("sort"));
         let items = issues.items;
         for(let i = 0; i < items.length; i++) {
             let item = items[i];
