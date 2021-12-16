@@ -98,6 +98,10 @@ hr {
     margin-right: 12px;
 }
 
+input[id="auth"] {
+    min-width: 350px;
+}
+
 .icons {
     display: flex;
     justify-content: center;
