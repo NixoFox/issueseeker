@@ -102,6 +102,14 @@ input[id="auth"] {
     min-width: 350px;
 }
 
+input[class="filter"] {
+    min-width: 400px;
+}
+
+.input-group#filter-list {
+    flex-direction: column;
+}
+
 .icons {
     display: flex;
     justify-content: center;

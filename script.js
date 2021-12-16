@@ -17,6 +17,18 @@ function toggleModal (id) {
     }
 }
 
+function addFilterInput () {
+    document.getElementById("filter-list").innerHTML += `<div class="input-group">
+        <label>filter ${document.getElementById("filter-list").children.length + 1}:</label>
+        <input type="text" class="filter" />
+        <input type="button" value="Remove" onclick="removeFilterInput(this)" />
+    </div>`;
+}
+
+function removeFilterInput (el) {
+    document.getElementById("filter-list").children.item(el).remove();
+}
+
 async function fetchjson (url) {
     if (localStorage.getItem("auth") != null) {
         return fetch(url, { headers: { authorization: "token " + localStorage.getItem("auth") } })
