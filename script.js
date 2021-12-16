@@ -25,6 +25,10 @@ function addFilterInput () {
     </div>`;
 }
 
+function removeFilterInput (el) {
+    document.getElementById("filter-list").children.item(el).remove();
+}
+
 function showSettings () {
     document.getElementById("auth").value = localStorage.getItem("auth");
     document.getElementById("per_page").value = localStorage.getItem("per_page");
@@ -35,10 +39,6 @@ function showSettings () {
         case "desc":
             document.getElementById("order").value = "Descending";
     }
-}
-
-function removeFilterInput (el) {
-    document.getElementById("filter-list").children.item(el).remove();
 }
 
 async function fetchjson (url) {
