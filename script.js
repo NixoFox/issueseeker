@@ -25,6 +25,25 @@ function addFilterInput () {
     </div>`;
 }
 
+function showSettings () {
+    document.getElementById("auth").value = localStorage.getItem("auth");
+    document.getElementById("per_page").value = localStorage.getItem("per_page");
+    switch (localStorage.getItem("order")) {
+        case "asc":
+            document.getElementById("order").value = "Ascending";
+        case "desc":
+            document.getElementById("order").value = "Descending";
+    }
+    switch (localStorage.getItem("sort")) {
+        case "created":
+            document.getElementById("sort").value = "Created";
+        case "updated":
+            document.getElementById("sort").value = "Updated";
+        case "commenets":
+            document.getElementById("sort").value = "Comments";
+    }
+}
+
 function removeFilterInput (el) {
     document.getElementById("filter-list").children.item(el).remove();
 }
