@@ -10,8 +10,8 @@
             <h1>IssueSeeker</h1>
             <hr/>
             <div class="icons">
-                <i onclick="document.getElementById('about').style.display = 'block'">about</i>
-                <i onclick="document.getElementById('settings').style.display = 'block'; document.getElementById('auth').value = localStorage.getItem('auth')">settings</i>
+                <i onclick="toggleModal('about')">about</i>
+                <i onclick="toggleModal('settings'); document.getElementById('auth').value = localStorage.getItem('auth')">settings</i>
             </div>
             <p>IssueSeeker helps you find issues on github to solve.</p>
             <hr/>
@@ -31,14 +31,14 @@
                 <p>
                     IssueSeeker is a tool that lets you search for github issues with multiple filters
                 </p>
-                <input type="button" value="close" onclick="document.getElementById('about').style.display = 'none'"/>
+                <input type="button" value="close" onclick="toggleModal('about')"/>
             </div>
         </div>
         <div class="modal" id="settings">
             <div class="inner">
                 <label>personal token: </label>
                 <input type="text" id="auth" />
-                <input type="button" value="save" onclick="document.getElementById('settings').style.display = 'none'; localStorage.setItem('auth', document.getElementById('auth').value)"/>
+                <input type="button" value="save" onclick="toggleModal('settings'); localStorage.setItem('auth', document.getElementById('auth').value)"/>
             </div>
         </div>
         <script src="script.js"></script>

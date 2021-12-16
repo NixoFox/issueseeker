@@ -9,6 +9,14 @@ if (localStorage.getItem("first") == null) {
 
 let filter_list = localStorage.getItem("filters").split(",");
 
+function toggleModal (id) {
+    if (document.getElementById(id).style.display != "block") {
+        document.getElementById(id).style.display = "block";
+    } else {
+        document.getElementById(id).style.display = "none";
+    }
+}
+
 async function fetchjson (url) {
     if (localStorage.getItem("auth") != null) {
         return fetch(url, { headers: { authorization: "token " + localStorage.getItem("auth") } })
