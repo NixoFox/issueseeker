@@ -3,7 +3,7 @@ if (localStorage.getItem("first") == null) {
     localStorage.setItem("order", "desc");
     localStorage.setItem("sort", "created");
     localStorage.setItem("filters", "is:open");
-    localStorage.setItem("auth", null);
+    localStorage.setItem("auth", "");
     localStorage.setItem("first", false);
 }
 
