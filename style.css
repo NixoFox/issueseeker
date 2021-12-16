@@ -88,9 +88,11 @@ hr {
 
 .icons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .icons > i {
     cursor: pointer;
+    padding: 0 2px;
+    margin: 0 4px;
 }
