@@ -32,17 +32,31 @@ function removeFilterInput (el) {
 function showSettings () {
     document.getElementById("auth").value = localStorage.getItem("auth");
     document.getElementById("per_page").value = localStorage.getItem("per_page");
-    document.getElementById("order").value = localStorage.getItem("order");
+    document.getElementById("sort").value = localStorage.getItem("sort");
     switch (localStorage.getItem("order")) {
         case "asc":
             document.getElementById("order").value = "Ascending";
+            break;
         case "desc":
             document.getElementById("order").value = "Descending";
     }
 }
 
+function saveSettings () {
+    localStorage.setItem('auth', document.getElementById('auth').value);
+    localStorage.setItem('per_page', document.getElementById('per_page').value);
+    localStorage.setItem('sort', document.getElementById('sort').value);
+    switch (document.getElementById("order").value) {
+        case "Ascending":
+            localStorage.setItem('order', "asc");
+            break;
+        case "Descending":
+            localStorage.setItem('order', "desc");
+    }
+}
+
 async function fetchjson (url) {
-    if (localStorage.getItem("auth") != null) {
+    if (localStorage.getItem("auth") != "") {
         return fetch(url, { headers: { authorization: "token " + localStorage.getItem("auth") } })
         .then((response) => {return response.json()});
     } else {
