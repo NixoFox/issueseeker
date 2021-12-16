@@ -81,6 +81,11 @@ hr {
     padding: 32px;
 }
 
+.modal > .inner > h3 {
+    margin: 0;
+    margin-bottom: 12px;
+}
+
 .icons {
     display: flex;
     justify-content: space-around;
