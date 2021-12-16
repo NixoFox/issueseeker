@@ -33,8 +33,10 @@
         <div class="modal" id="settings">
             <div class="inner">
                 <h3>Settings</h3>
-                <label>personal token: </label>
-                <input type="text" id="auth" />
+                <div class="input-group">
+                    <label>personal token:</label>
+                    <input type="text" id="auth" />
+                </div>
                 <input type="button" value="save" onclick="toggleModal('settings'); localStorage.setItem('auth', document.getElementById('auth').value)"/>
             </div>
         </div>

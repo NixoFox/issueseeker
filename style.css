@@ -88,6 +88,16 @@ hr {
     margin-bottom: 12px;
 }
 
+.modal > .inner > .input-group {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.modal > .inner > .input-group > label {
+    margin-right: 12px;
+}
+
 .icons {
     display: flex;
     justify-content: center;
