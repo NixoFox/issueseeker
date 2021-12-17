@@ -55,6 +55,26 @@ function saveSettings () {
     }
 }
 
+let url = window.location.href.split("#");
+
+function nextPage () {
+    if (url.length == 1) {
+        window.location.assign(url[0] + "#1");
+    } else {
+        window.location.assign(url[0] + "#" + (parseInt(url[1]) + 1));
+    }
+    location.reload();
+}
+
+function prevPage () {
+    if (url.length == 1) {
+        window.location.assign(url[0] + "#1");
+    } else {
+        window.location.assign(url[0] + "#" + (parseInt(url[1]) - 1));
+    }
+    location.reload();
+}
+
 async function fetchjson (url) {
     if (localStorage.getItem("auth") != "") {
         return fetch(url, { headers: { authorization: "token " + localStorage.getItem("auth") } })
@@ -66,8 +86,11 @@ async function fetchjson (url) {
 }
 
 async function main () {
+    if (url.length == 1) {
+        url.push("1");
+    }
     for (let k = 0; k < filter_list.length; k++) {
-        let issues = await fetchjson("https://api.github.com/search/issues?per_page="+Math.floor(localStorage.getItem("per_page")/filter_list.length)+"&q=is:issue+"+filter_list[k]+"&order="+localStorage.getItem("order")+"&sort="+localStorage.getItem("sort"));
+        let issues = await fetchjson("https://api.github.com/search/issues?per_page="+Math.floor(localStorage.getItem("per_page")/filter_list.length)+"&page="+url[1]+"&q=is:issue+"+filter_list[k]+"&order="+localStorage.getItem("order")+"&sort="+localStorage.getItem("sort"));
         let items = issues.items;
         for(let i = 0; i < items.length; i++) {
             let item = items[i];
