@@ -30,6 +30,7 @@ function removeFilterInput (el) {
 }
 
 function showSettings () {
+    document.getElementById("filter-list").innerHTML = "";
     for (let i = 0; i < filter_list.length; i++) {
         document.getElementById("filter-list").innerHTML += `<div class="input-group">
         <label>filter ${document.getElementById("filter-list").children.length + 1}:</label>
