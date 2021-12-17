@@ -52,7 +52,11 @@ function showSettings () {
 
 function saveSettings () {
     localStorage.setItem('auth', document.getElementById('auth').value);
-    localStorage.setItem('per_page', document.getElementById('per_page').value);
+    if (document.getElementById('per_page').value != "" && parseInt(document.getElementById('per_page').value) > 0) {
+        localStorage.setItem('per_page', document.getElementById('per_page').value);
+    } else {
+        localStorage.setItem('per_page', "25");
+    }
     localStorage.setItem('sort', document.getElementById('sort').value);
     switch (document.getElementById("order").value) {
         case "Ascending":
