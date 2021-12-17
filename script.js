@@ -2,12 +2,13 @@ if (localStorage.getItem("first") == null) {
     localStorage.setItem("per_page", 25);
     localStorage.setItem("order", "desc");
     localStorage.setItem("sort", "created");
-    localStorage.setItem("filters", "is:open");
+    localStorage.setItem("filters", "is:open,");
     localStorage.setItem("auth", "");
     localStorage.setItem("first", false);
 }
 
 let filter_list = localStorage.getItem("filters").split(",");
+filter_list.pop();
 
 function toggleModal (id) {
     if (document.getElementById(id).style.display != "block") {
@@ -34,9 +35,10 @@ function showSettings () {
     for (let i = 0; i < filter_list.length; i++) {
         document.getElementById("filter-list").innerHTML += `<div class="input-group">
         <label>filter ${document.getElementById("filter-list").children.length + 1}:</label>
-            <input type="text" class="filter" value="${filter_list[i].replace("+", " ")}" />
+            <input type="text" class="filter" />
             <input type="button" value="Remove" onclick="removeFilterInput(this)" />
         </div>`;
+        document.getElementsByClassName("filter").item(i).value = filter_list[i].replace("+", " ");
     }
     document.getElementById("auth").value = localStorage.getItem("auth");
     document.getElementById("per_page").value = localStorage.getItem("per_page");
@@ -51,6 +53,12 @@ function showSettings () {
 }
 
 function saveSettings () {
+    let filters_save = "";
+    let filters_inputs = document.getElementsByClassName("filter");
+    for (let i = 0; i < filters_inputs.length; i++) {
+        filters_save += filters_inputs.item(i).value.replace(" ", "+") + ",";
+    }
+    localStorage.setItem("filters", filters_save);
     localStorage.setItem('auth', document.getElementById('auth').value);
     if (document.getElementById('per_page').value != "" && parseInt(document.getElementById('per_page').value) > 0) {
         localStorage.setItem('per_page', document.getElementById('per_page').value);
