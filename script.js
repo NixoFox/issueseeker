@@ -26,10 +26,17 @@ function addFilterInput () {
 }
 
 function removeFilterInput (el) {
-    document.getElementById("filter-list").children.item(el).remove();
+    el.parentElement.remove();
 }
 
 function showSettings () {
+    for (let i = 0; i < filter_list.length; i++) {
+        document.getElementById("filter-list").innerHTML += `<div class="input-group">
+        <label>filter ${document.getElementById("filter-list").children.length + 1}:</label>
+            <input type="text" class="filter" value="${filter_list[i]}" />
+            <input type="button" value="Remove" onclick="removeFilterInput(this)" />
+        </div>`;
+    }
     document.getElementById("auth").value = localStorage.getItem("auth");
     document.getElementById("per_page").value = localStorage.getItem("per_page");
     document.getElementById("sort").value = localStorage.getItem("sort");
