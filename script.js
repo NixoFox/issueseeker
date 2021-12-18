@@ -72,8 +72,7 @@ function saveSettings () {
         case "Descending":
             localStorage.setItem('order', "desc");
     }
-    filter_list = localStorage.getItem("filters").split(",");
-    filter_list.pop();
+    window.reload();
 }
 
 let url = window.location.href.split("#");
