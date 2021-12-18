@@ -34,11 +34,10 @@ function showSettings () {
     document.getElementById("filter-list").innerHTML = "";
     for (let i = 0; i < filter_list.length; i++) {
         document.getElementById("filter-list").innerHTML += `<div class="input-group">
-        <label>filter ${document.getElementById("filter-list").children.length + 1}:</label>
-            <input type="text" class="filter" />
+        <label>filter ${i + 1}:</label>
+            <input type="text" class="filter" value='${filter_list[i].replace("+", " ")}' />
             <input type="button" value="Remove" onclick="removeFilterInput(this)" />
         </div>`;
-        document.getElementsByClassName("filter").item(i).value = filter_list[i].replace("+", " ");
     }
     document.getElementById("auth").value = localStorage.getItem("auth");
     document.getElementById("per_page").value = localStorage.getItem("per_page");
@@ -73,6 +72,8 @@ function saveSettings () {
         case "Descending":
             localStorage.setItem('order', "desc");
     }
+    filter_list = localStorage.getItem("filters").split(",");
+    filter_list.pop();
 }
 
 let url = window.location.href.split("#");
