@@ -99,10 +99,12 @@ function prevPage () {
 async function fetchjson (url) {
     if (localStorage.getItem("auth") != "") {
         return fetch(url, { headers: { authorization: "token " + localStorage.getItem("auth") } })
-        .then((response) => {return response.json()});
+        .then((response) => {if (response.status == 200) { return response } else { toggleModal("error") }})
+        .then((data) => {return data.json()});
     } else {
     return fetch(url)
-        .then((response) => {return response.json()});
+        .then((response) => {if (response.status == 200) { return response } else { toggleModal("error") }})
+        .then((data) => {return data.json()});
     }
 }
 
